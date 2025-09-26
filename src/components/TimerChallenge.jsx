@@ -10,9 +10,6 @@ const TimerChallenge = ({ title, targetTime }) => {
 	const targetTimeInMilliseconds = targetTime * millisecondMultiplier;
 
 	const [timeRemaining, setTimeRemaining] = useState(targetTimeInMilliseconds);
-	// const [timerStarted, setTimerStarted] = useState();
-	// const [timerExpired, setTimerExpired] = useState();
-	// const [playerHasWon, setPlayerHasWon] = useState();
 
 	const timerIsActive =
 		timeRemaining > 0 && timeRemaining < targetTimeInMilliseconds;
@@ -27,23 +24,14 @@ const TimerChallenge = ({ title, targetTime }) => {
 	};
 
 	const handleStartTimer = () => {
-		// setTimerStarted(true);
-		// if (timerExpired) {
-		//   setTimerExpired(false);
-		// }
-
 		timer.current = setInterval(() => {
 			setTimeRemaining(
 				(previousTimeRemaining) => previousTimeRemaining - millisecondInterval
 			);
-			// setTimerExpired(true);
-			// setTimerStarted(false);
-			// modal.current.open();
 		}, millisecondInterval);
 	};
 
 	const handleEndTimer = () => {
-		// setTimerStarted(false);
 		clearInterval(timer.current);
 		modal.current.open();
 	};
@@ -52,7 +40,6 @@ const TimerChallenge = ({ title, targetTime }) => {
 		<>
 			<ResultModal
 				ref={modal}
-				// playerHasWon={!timerIsActive}
 				targetTime={targetTime}
 				remainingTime={timeRemaining}
 				onTimerReset={handleTimerReset}
