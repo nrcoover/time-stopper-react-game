@@ -32,10 +32,23 @@ const ResultModal = forwardRef(
 				<p>
 					The target time was <strong>{targetTime}</strong> seconds.
 				</p>
-				<p>
-					You stopped the timer with{" "}
-					<strong>{formattedRemainingTime} seconds left.</strong>
-				</p>
+				{playerHasWon ? (
+					<>
+						<p>
+							You stopped the timer with{" "}
+							<strong>{formattedRemainingTime} seconds left.</strong>
+						</p>
+					</>
+				) : (
+					<>
+						<p>
+							You <strong>failed</strong> to stop the timer{" "}
+							<strong>within the limit!</strong> <br />
+						</p>
+						<p>Please try again!</p>
+					</>
+				)}
+
 				{playerHasWon && <p>Your score: {score}</p>}
 				<form method="dialog" onSubmit={onTimerReset}>
 					<button>Close</button>
