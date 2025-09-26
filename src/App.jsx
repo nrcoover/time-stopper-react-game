@@ -1,15 +1,26 @@
+import { useState } from "react";
 import Player from "./components/Player.jsx";
 import TimerChallenge from "./components/TimerChallenge.jsx";
 
 function App() {
+	const [savedName, setSavedName] = useState("unknown entity");
+
+	const handleOnClick = () => {
+		console.log(`Entered Name: ${playerName.current.value}`);
+		setSavedName(playerName.current.value);
+	};
 	return (
 		<>
-			<Player />
+			<Player savedName={savedName} setSavedName={setSavedName} />
 			<div id="challenges">
-				<TimerChallenge title="Easy" targetTime={1} />
-				<TimerChallenge title="Normal" targetTime={5} />
-				<TimerChallenge title="Intermediate" targetTime={10} />
-				<TimerChallenge title="Hard" targetTime={15} />
+				<TimerChallenge playerName={savedName} title="Easy" targetTime={1} />
+				<TimerChallenge playerName={savedName} title="Normal" targetTime={5} />
+				<TimerChallenge
+					playerName={savedName}
+					title="Intermediate"
+					targetTime={10}
+				/>
+				<TimerChallenge playerName={savedName} title="Hard" targetTime={15} />
 			</div>
 		</>
 	);

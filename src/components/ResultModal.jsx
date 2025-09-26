@@ -6,7 +6,7 @@ const percentMultiplier = 100;
 const scoreOffsetValue = 1;
 
 const ResultModal = forwardRef(
-	({ targetTime, remainingTime, onTimerReset }, ref) => {
+	({ targetTime, remainingTime, onTimerReset, playerName }, ref) => {
 		const score = Math.round(
 			(scoreOffsetValue -
 				remainingTime / (targetTime * millisecondMultiplier)) *
@@ -45,9 +45,14 @@ const ResultModal = forwardRef(
 							You <strong>failed</strong> to stop the timer{" "}
 							<strong>within the limit!</strong> <br />
 						</p>
-						<p>Please try again!</p>
 					</>
 				)}
+
+				<p>
+					{playerHasWon ? "Congratulations," : "So sorry, "}{" "}
+					<strong>{playerName}</strong>!
+					{!playerHasWon && <p>Please try again!</p>}
+				</p>
 
 				{playerHasWon && <p>Your score: {score}</p>}
 				<form method="dialog" onSubmit={onTimerReset}>

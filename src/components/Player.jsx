@@ -1,8 +1,7 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 
-export default function Player() {
+const Player = ({ savedName, setSavedName }) => {
 	const playerName = useRef();
-	const [savedName, setSavedName] = useState("unknown entity");
 
 	const handleOnClick = () => {
 		console.log(`Entered Name: ${playerName.current.value}`);
@@ -18,4 +17,6 @@ export default function Player() {
 			</p>
 		</section>
 	);
-}
+};
+
+export default Player;
