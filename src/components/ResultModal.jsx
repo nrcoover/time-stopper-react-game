@@ -33,19 +33,15 @@ const ResultModal = forwardRef(
 					The target time was <strong>{targetTime}</strong> seconds.
 				</p>
 				{playerHasWon ? (
-					<>
-						<p>
-							You stopped the timer with{" "}
-							<strong>{formattedRemainingTime} seconds left.</strong>
-						</p>
-					</>
+					<p>
+						You stopped the timer with{" "}
+						<strong>{formattedRemainingTime} seconds left.</strong>
+					</p>
 				) : (
-					<>
-						<p>
-							You <strong>failed</strong> to stop the timer{" "}
-							<strong>within the limit!</strong> <br />
-						</p>
-					</>
+					<p>
+						You <strong>failed</strong> to stop the timer{" "}
+						<strong>within the limit!</strong> <br />
+					</p>
 				)}
 
 				<p>
