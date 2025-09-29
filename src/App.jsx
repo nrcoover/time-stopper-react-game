@@ -13,7 +13,12 @@ function App() {
 		<>
 			<Player savedName={savedName} setSavedName={setSavedName} />
 			<div id="challenges">
-				<TimerChallenge playerName={savedName} title="Easy" targetTime={1} />
+				<TimerChallenge
+					playerName={savedName}
+					title="Easy"
+					targetTime={1}
+					isEasy={true}
+				/>
 				<TimerChallenge playerName={savedName} title="Normal" targetTime={5} />
 				<TimerChallenge
 					playerName={savedName}

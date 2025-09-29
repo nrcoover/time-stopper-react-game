@@ -3,7 +3,7 @@ import ResultModal from "./ResultModal";
 const millisecondMultiplier = 1000;
 const millisecondInterval = 10;
 
-const TimerChallenge = ({ playerName, title, targetTime }) => {
+const TimerChallenge = ({ playerName, title, targetTime, isEasy = false }) => {
 	const timer = useRef();
 	const modal = useRef();
 
@@ -44,6 +44,7 @@ const TimerChallenge = ({ playerName, title, targetTime }) => {
 				remainingTime={timeRemaining}
 				onTimerReset={handleTimerReset}
 				playerName={playerName}
+				isEasy={isEasy}
 			/>
 			<section className="challenge">
 				<h2>{title}</h2>

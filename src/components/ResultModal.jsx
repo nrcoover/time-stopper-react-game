@@ -6,7 +6,7 @@ const percentMultiplier = 100;
 const scoreOffsetValue = 1;
 
 const ResultModal = forwardRef(
-	({ targetTime, remainingTime, onTimerReset, playerName }, ref) => {
+	({ targetTime, remainingTime, onTimerReset, playerName, isEasy }, ref) => {
 		const score = Math.round(
 			(scoreOffsetValue -
 				remainingTime / (targetTime * millisecondMultiplier)) *
@@ -30,7 +30,8 @@ const ResultModal = forwardRef(
 			<dialog ref={dialogue} className="result-modal" onClose={onTimerReset}>
 				<h2>{playerHasWon ? "You won!" : "You lost!"}</h2>
 				<p>
-					The target time was <strong>{targetTime}</strong> seconds.
+					The target time was <strong>{targetTime}</strong> second
+					{isEasy ? "" : "s"}.
 				</p>
 				{playerHasWon ? (
 					<p>
